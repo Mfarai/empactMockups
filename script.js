@@ -32,10 +32,32 @@
             });
         }, observerOptions);
 
+        const observerOption = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const counterObservers = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.metric-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target);
+                    });
+                    counterObservers.unobserve(entry.target);
+                }
+            });
+        }, observerOption);
+
         // Observe stats section
         document.addEventListener('DOMContentLoaded', () => {
             const statsSection = document.querySelector('.stats-section');
             counterObserver.observe(statsSection);
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const impactSection = document.querySelector('.impact-container');
+            counterObservers.observe(impactSection);
         });
 
         // Language Switching Function
@@ -110,3 +132,52 @@
                 header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
             }
         });
+
+        const $next = document.querySelector('.carousel-btn next');
+        const $prev = document.querySelector('.carousel-btn prev');
+
+        $next.addEventListener(
+            'click',
+            () => {
+                const items =document.querySelectorAll('.item');
+                document.querySelector('.slide').appendChild(items[0]);
+            },
+        );
+        $prev.addEventListener(
+            'click',
+            () => {
+                const items =document.querySelectorAll('.item');
+                document.querySelector('.slide').prepend(items[items.length -1]);
+            },
+        );
+
+        // Side NavIgation Menu JS Code
+        let body = document.querySelector("body");
+        let navBar = document.querySelector(".nav-menu");
+        let menuBtn = document.querySelector(".menu-btn");
+        let cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = function(){
+        navBar.classList.add("active");
+        menuBtn.style.opacity = "0";
+        menuBtn.style.pointerEvents = "none";
+        body.style.overflow = "hidden";
+        scrollBtn.style.pointerEvents = "none";
+        }
+        cancelBtn.onclick = function(){
+        navBar.classList.remove("active");
+        menuBtn.style.opacity = "1";
+        menuBtn.style.pointerEvents = "auto";
+        body.style.overflow = "auto";
+        scrollBtn.style.pointerEvents = "auto";
+        }
+
+        // Side Navigation Bar Close While We Click On Navigation Links
+        let navLinks = document.querySelectorAll(".menu li a");
+        for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click" , function() {
+        navBar.classList.remove("active");
+        menuBtn.style.opacity = "1";
+        menuBtn.style.pointerEvents = "auto";
+        });
+    }
+
