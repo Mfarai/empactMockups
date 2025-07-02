@@ -109,7 +109,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80%;
+            height: 90%;
             object-fit: cover;
             z-index: -1;
             filter: contrast(100%) brightness(90%);
@@ -130,32 +130,27 @@
             z-index: -1;
             color: white;
             text-align: center;
-            top: 50%;
+            top: 75%;
             transform: translateY(-50%);
-            padding: 0 2rem;
-            mix-blend-mode: difference;
+            padding: 0 1rem;
         }
 
         .hero-text h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-text p {
-            font-weight: 500;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
+            display: inline-block;
+            padding: 1rem 0.5rem;
+            background: #f2491e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: -10px -10px 30px rgba(63, 59, 58, 0.3);
         }
 
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: #f2491e;
+            background: #0f1551;
             color: white;
             text-decoration: none;
             border-radius: 50px;
@@ -166,7 +161,7 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-3px -10px 30px);
+            transform: translateY(10px, 30px);
             box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
         }
 
@@ -191,17 +186,19 @@
 
         /* Stats Section */
         .stats-section {
-            background: white;
+            background: #0f1551;
             padding: 4rem 0;
             margin-top: -2rem;
             position: relative;
+            height: auto;
             z-index: 3;
         }
 
         .stats-container h2 {
+            text-align: center;
             font-size: 3rem;
             font-weight: 700;
-            color: #0f1551;
+            color: white;
             margin-bottom: 1.9rem;
         }
 
@@ -258,7 +255,7 @@
         }
 
         .stat-problem {
-            background: linear-gradient(135deg, #f2491e, #e98819);
+            background: linear-gradient(135deg, #0f1551, #0f1569);
             color: white;
         }
 
@@ -267,7 +264,7 @@
         }
 
         .stat-problem .stat-number {
-            color: white;
+            color: #f2491e;
         }
 
         .stat-problem .stat-label {
@@ -293,7 +290,7 @@
         .mission-content h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #0f0f0f;
+            color: #0f1551;
             margin-bottom: 1.5rem;
         }
 
@@ -342,8 +339,8 @@
         }
 
         .interactive-map {
-            width: 100%;
-            height: 400px;
+            width: 650px;
+            height: 650px;
             background:url(img/Ivory-coast-map-3.png);
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -362,15 +359,18 @@
         }
 
         .map-placeholder {
-            font-size: 1.1rem;
+            position: absolute;
+            top: 2%;
+            left: 57%;
+            font-size: 1rem;
             color: #0f1551;
-            font-weight: 800;
+            font-weight: 600;
         }
 
         .map-pin {
             position: absolute;
-            top: 75%;
-            left: 29%;
+            top: 46%;
+            left: 24%;
             transform: translate(-50%, -50%);
             width: 20px;
             height: 20px;
@@ -457,8 +457,20 @@
 
          /* Projects Timeline Section */
          .projects-section {
+            position: relative;
             padding: 6rem 0;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            background: 
+                radial-gradient(circle at 25% 25%, #f2491e 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #0f1551 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, #0f1569 0%, transparent 50%);
+            filter: blur(40px),
+            opacity(0.7);
+            animation: neonPulse 0s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse{
+            0%{opacity: 0.5; transform: scale(1);}
+            100%{opacity: 0.8; transform: scale(1);}
         }
 
         .projects-container {
@@ -469,7 +481,7 @@
 
         .timeline {
             position: relative;
-            max-width: 800px;
+            width: 500px;
             margin: 0 auto;
         }
 
@@ -503,6 +515,7 @@
         .timeline-item:nth-child(even) .timeline-content {
             padding-left: 3rem;
             margin-left: 50%;
+            width: 500px;
         }
 
         .timeline-marker {
@@ -514,13 +527,13 @@
             background: white;
             border-radius: 50%;
             padding: 0.5rem;
-            box-shadow: 0 0 0 3px #0f1551;
+            box-shadow: 0 0 0 3px #f2491e;
         }
 
         .marker-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #0f1551, #0f1569);
+            background: linear-gradient(135deg, #0f1551, #0f1551);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -543,7 +556,7 @@
 
         .project-image {
             height: 200px;
-            background: url(img/IMG_6286.jpg);
+            background:#0f1551;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -579,44 +592,68 @@
         }
 
         .project-info {
-            padding: 2rem;
-        }
-
-        .project-info h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #0f1551;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-date {
-            color: #0f1551;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .project-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .stat-item {
+            padding: 1.5rem;
+            position: relative;
             text-align: center;
+            
         }
 
-        .stat-value {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f1551;
+        .project-info img{
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: #0f1551;
+        .project-info .layer {
+            background:transparent;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 12px;
+            transition: all .40s;
+        }
+
+        .project-info .layer:hover{
+            background:linear-gradient(rgba(0,0,0,0.5) 0%, #191919);
+        }
+
+        .project-info .layer h3{
+            position: absolute;
+            width: 100%;
+            font-size: 25px;
+            font-weight: 1000;
+            color:#F0F8FF;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: all .40s;
+        }
+
+        .project-info .layer:hover h3{
+            bottom: 60%;
+            opacity: 1;
+        }
+
+        .project-info .layer p{
+            position: absolute;
+            width: 100%;
+            font-size: 17px;
+            font-weight: 600;
+            color:#f2491e;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: all .40s;
+        }
+
+        .project-info .layer:hover p{
+            bottom: 35%;
+            opacity: 1;
         }
 
         /* Impact Metrics Section */
@@ -1028,8 +1065,9 @@
             height: 100%;
             position: relative;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            background:url(img/Copy\ of\ IMG_6317.jpg);
             backdrop-filter: blur(10px);
+            object-fit: contain;
         }
 
         .floating-elements {
